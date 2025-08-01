@@ -5,7 +5,8 @@ Source: [Click here](https://electron-vite.org/guide/#scaffolding-your-first-ele
 **Todos:**
 
 - [x] Switch window to frontend every 1 hour to get feedback on progress.
-- TODO: I can minimise or switch back to previous window after giving the feedback.
+- TODO: I can minimise or switch back to previous window after giving the feedback using the submit button and only after the response is submitted successfuly.
+- TODO: Get feedback on the entire day about my feedback so I can know my psychology of working throughout the day.
 
 I created this project via below command:
 
