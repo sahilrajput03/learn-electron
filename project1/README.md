@@ -2,6 +2,11 @@
 
 Source: [Click here](https://electron-vite.org/guide/#scaffolding-your-first-electron-vite-project)
 
+**Todos:**
+
+- [x] Switch window to frontend every 1 hour to get feedback on progress.
+- TODO: I can minimise or switch back to previous window after giving the feedback.
+
 I created this project via below command:
 
 ```bash
@@ -23,41 +28,8 @@ npm create @quick-start/electron@latest .
 
 npm i
 
-# for development simply run:
+# 🚀 For development simply run:
 nr dev
 ```
 
-# electron-app1
-
-An Electron application with Svelte and TypeScript
-
-## Recommended IDE Setup
-
-- [VSCode](https://code.visualstudio.com/) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
-
-## Project Setup
-
-### Install
-
-```bash
-$ npm install
-```
-
-### Development
-
-```bash
-$ npm run dev
-```
-
-### Build
-
-```bash
-# For windows
-$ npm run build:win
-
-# For macOS
-$ npm run build:mac
-
-# For Linux
-$ npm run build:linux
-```
+Thanks.
