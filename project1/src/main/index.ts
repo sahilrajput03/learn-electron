@@ -26,6 +26,15 @@ function createWindow(): void {
     return { action: 'deny' }
   })
 
+  // From Sahil:
+  // ❤️ Bring window to top every 10 seconds, src: https://chatgpt.com/c/68867d7e-1d3c-8007-845b-40c511a43cb9
+  setInterval(() => {
+    if (mainWindow) {
+      // Learn: Works when the window is behind + when the window was minimised as well.
+      mainWindow.show();                // Bring to front
+    }
+  }, 10_000); // 10 seconds
+
   // HMR for renderer base on electron-vite cli.
   // Load the remote URL for development or the local html file for production.
   if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
