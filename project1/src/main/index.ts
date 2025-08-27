@@ -42,7 +42,7 @@ function createWindow(): void {
       // Learn: Works when the window is behind & also when the window was minimised. [Tested ✅]
       mainWindow.setAlwaysOnTop(true);  // Enable always-on-top
       mainWindow.show();                // Bring to front
-    }, 10_000); // 10 seconds
+    }, 25 /* 25 mins*/ * 60 * 1_000); // 10 seconds
   })
 
   mainWindow.webContents.setWindowOpenHandler((details) => {
