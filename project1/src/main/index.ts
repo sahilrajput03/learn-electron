@@ -31,7 +31,10 @@ function createWindow(): void {
       console.log('🚀Bringing window to top...'); // Printed to cli
       // * Learn: Do *NOT* use alert(..) because we get --- `Uncaught Exception: ReferenceError: alert is not defined`
       // alert('This is alert message.')
-      mainWindow.center(); // move window to screen center [Tested ✅]
+
+      // * Center the window
+      // mainWindow.center(); // move window to screen center [Tested ✅]
+
       // Learn: Works when the window is behind & also when the window was minimised. [Tested ✅]
       mainWindow.setAlwaysOnTop(true);  // Enable always-on-top
       mainWindow.show();                // Bring to front
@@ -43,7 +46,7 @@ function createWindow(): void {
     return { action: 'deny' }
   })
 
-  // ? Use f12 key to open/close DevTools manually.
+  // ? Use `option+cmd+i` or `f12`  to open/close DevTools manually.
   // ? Open DevTools by default (src: https://chatgpt.com/c/68af249b-8870-832d-9929-1aef61f8eedd)
   mainWindow.webContents.openDevTools({ mode: 'right' }); // `mode` can be "right", "bottom", "undocked", "detach"
 
