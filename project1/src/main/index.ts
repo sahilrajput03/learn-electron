@@ -17,6 +17,11 @@ function createWindow(): void {
     }
   })
 
+  // & Learn:
+  // - The code in mainProcess i.e, code in this file doesn't update with vite
+  //      vite HMR so you must restart vite dev server to see changes made in this
+  //      file.
+
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
     console.log('🚀App is ready to show window.') // Printed to cli
