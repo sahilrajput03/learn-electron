@@ -4,6 +4,8 @@ import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
 
 function createWindow(): void {
+  console.log('❤️ Running main process code - `createWindow()`') // Printed to cli
+
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 900,
@@ -17,12 +19,8 @@ function createWindow(): void {
     }
   })
 
-  // & Learn:
-  // - The code in mainProcess i.e, code in this file doesn't update with vite
-  //      vite HMR so you must restart vite dev server to see changes made in this
-  //      file.
-  //  TODO: Try if `electronmon` works with `electron-vite` setup to
-  //      auto-restart on changes in this file. --- https://www.npmjs.com/package/electronmon
+  // & Learn: Please use `nr watch` so code changes in this file auto-reloads the app.
+  //    Also, `nr dev` command only reloads the renderer process code changes via HMR.
 
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
