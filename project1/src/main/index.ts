@@ -33,11 +33,14 @@ function createWindow(): void {
       // alert('This is alert message.')
 
       // * Center the window
-      // mainWindow.center(); // move window to screen center [Tested ✅]
+      mainWindow.center(); // move window to screen center [Tested ✅]
 
       // Learn: Works when the window is behind & also when the window was minimised. [Tested ✅]
       mainWindow.setAlwaysOnTop(true);  // Enable always-on-top
       mainWindow.show();                // Bring to front
+
+      // * Send event to frontend to update quote. We expose `custom-event` via file file://./../../src/preload/index.ts) 🎉
+      mainWindow?.webContents.send("custom-event", { action: "UPDATE_QUOTE", message: "" });
     }, 10_000); // 10 seconds
   })
 

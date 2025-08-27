@@ -1,6 +1,6 @@
-import tseslint from '@electron-toolkit/eslint-config-ts'
-import eslintConfigPrettier from '@electron-toolkit/eslint-config-prettier'
-import eslintPluginSvelte from 'eslint-plugin-svelte'
+import tseslint from '@electron-toolkit/eslint-config-ts';
+import eslintConfigPrettier from '@electron-toolkit/eslint-config-prettier';
+import eslintPluginSvelte from 'eslint-plugin-svelte';
 
 export default tseslint.config(
   { ignores: ['**/node_modules', '**/dist', '**/out'] },
@@ -17,8 +17,10 @@ export default tseslint.config(
   {
     files: ['**/*.{tsx,svelte}'],
     rules: {
-      'svelte/no-unused-svelte-ignore': 'off'
+      'svelte/no-unused-svelte-ignore': 'off',
+      // TODO: check if you need below rule? ~ Sahil
+      // 'no-unused-vars': 'off'
     }
   },
   eslintConfigPrettier
-)
+);

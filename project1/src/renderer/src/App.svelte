@@ -1,15 +1,17 @@
 <script lang="ts">
   import { onMount } from 'svelte'
   import { getRandomQuote } from './sampleQuotes'
-
   // import AppDefault from './AppDefault.svelte'
 
   let quote = $state(getRandomQuote())
 
-  onMount(() => {
-    setInterval(() => {
+  // onMount(() => { })
+
+  // @ts-ignore
+  window.api.onCustomEvent((data) => {
+    if (data.action === 'UPDATE_QUOTE') {
       quote = getRandomQuote()
-    }, 5_000)
+    }
   })
 </script>
 
