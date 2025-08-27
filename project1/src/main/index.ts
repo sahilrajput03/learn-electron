@@ -19,7 +19,7 @@ function createWindow(): void {
     }
   })
 
-  // & Learn: Please use `nr watch` so code changes in this file auto-reloads the app.
+  // & Learn: Use `nr watch` so code changes in this file auto-reloads the app.
   //    Also, `nr dev` command only reloads the renderer process code changes via HMR.
 
   mainWindow.on('ready-to-show', () => {
