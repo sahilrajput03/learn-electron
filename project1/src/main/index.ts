@@ -19,6 +19,18 @@ function createWindow(): void {
 
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
+    console.log('🚀App is ready to show window.') // Printed to cli
+
+    // ? Bring window to top every 10 seconds, src: https://chatgpt.com/c/68867d7e-1d3c-8007-845b-40c511a43cb9
+    setInterval(() => {
+      console.log('🚀Bringing window to top...'); // Printed to cli
+      // * Learn: Do *NOT* use alert(..) because we get --- `Uncaught Exception: ReferenceError: alert is not defined`
+      // alert('This is alert message.')
+      mainWindow.center(); // move window to screen center [Tested ✅]
+      // Learn: Works when the window is behind & also when the window was minimised. [Tested ✅]
+      mainWindow.setAlwaysOnTop(true);  // Enable always-on-top
+      mainWindow.show();                // Bring to front
+    }, 10_000); // 10 seconds
   })
 
   mainWindow.webContents.setWindowOpenHandler((details) => {
@@ -26,14 +38,8 @@ function createWindow(): void {
     return { action: 'deny' }
   })
 
-  // From Sahil:
-  // ❤️ Bring window to top every 10 seconds, src: https://chatgpt.com/c/68867d7e-1d3c-8007-845b-40c511a43cb9
-  setInterval(() => {
-    if (mainWindow) {
-      // Learn: Works when the window is behind + when the window was minimised as well.
-      mainWindow.show();                // Bring to front
-    }
-  }, 10_000); // 10 seconds
+  // ? Open DevTools by default (src: https://chatgpt.com/c/68af249b-8870-832d-9929-1aef61f8eedd)
+  mainWindow.webContents.openDevTools({ mode: 'right' }); // `mode` can be "right", "bottom", "undocked", "detach"
 
   // HMR for renderer base on electron-vite cli.
   // Load the remote URL for development or the local html file for production.
