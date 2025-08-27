@@ -27,14 +27,14 @@ function createWindow(): void {
     console.log('🚀App is ready to show window.') // Printed to cli
 
     // ? Bring window to top every 10 seconds, src: https://chatgpt.com/c/68867d7e-1d3c-8007-845b-40c511a43cb9
-    setInterval(() => {
+    setInterval(async () => {
       console.log('🚀Bringing window to top...'); // Printed to cli
       // * Learn: Do *NOT* use alert(..) because we get --- `Uncaught Exception: ReferenceError: alert is not defined`
       // alert('This is alert message.')
 
-
       // * Send event to frontend to update quote. We expose `custom-event` via file file://./../../src/preload/index.ts) 🎉
       mainWindow?.webContents.send("custom-event", { action: "UPDATE_QUOTE", message: "" });
+      await new Promise(resolve => setTimeout(resolve, 1000)); // wait for 1 second
 
       // * Center the window
       mainWindow.center(); // move window to screen center [Tested ✅]
@@ -52,7 +52,7 @@ function createWindow(): void {
 
   // ? Use `option+cmd+i` or `f12`  to open/close DevTools manually.
   // ? Open DevTools by default (src: https://chatgpt.com/c/68af249b-8870-832d-9929-1aef61f8eedd)
-  mainWindow.webContents.openDevTools({ mode: 'right' }); // `mode` can be "right", "bottom", "undocked", "detach"
+  // mainWindow.webContents.openDevTools({ mode: 'right' }); // `mode` can be "right", "bottom", "undocked", "detach"
 
   // HMR for renderer base on electron-vite cli.
   // Load the remote URL for development or the local html file for production.
