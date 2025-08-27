@@ -26,6 +26,14 @@ function createWindow(): void {
     mainWindow.show()
     console.log('🚀App is ready to show window.') // Printed to cli
 
+    mainWindow.setAlwaysOnTop(true);  // Enable always-on-top
+
+    // const interval = 25 /* 25 mins*/ * 60 * 1_000
+    const interval = 10 * 1_000
+
+    // !
+    ///// ! This whole interval code is faulty because if you refresh the frontend, the timer is reset and we still get stale interval.
+
     // ? Bring window to top every 10 seconds, src: https://chatgpt.com/c/68867d7e-1d3c-8007-845b-40c511a43cb9
     setInterval(async () => {
       console.log('🚀Bringing window to top...'); // Printed to cli
@@ -33,16 +41,16 @@ function createWindow(): void {
       // alert('This is alert message.')
 
       // * Send event to frontend to update quote. We expose `custom-event` via file file://./../../src/preload/index.ts) 🎉
-      mainWindow?.webContents.send("custom-event", { action: "UPDATE_QUOTE", message: "" });
-      await new Promise(resolve => setTimeout(resolve, 1000)); // wait for 1 second
+      mainWindow?.webContents.send("custom-event", { action: "UPDATE_QUOTE", interval });
+      // await new Promise(resolve => setTimeout(resolve, 1000)); // wait for 1 second
 
       // * Center the window
-      mainWindow.center(); // move window to screen center [Tested ✅]
+      // mainWindow.center(); // move window to screen center [Tested ✅]
 
       // Learn: Works when the window is behind & also when the window was minimised. [Tested ✅]
       mainWindow.setAlwaysOnTop(true);  // Enable always-on-top
       mainWindow.show();                // Bring to front
-    }, 25 /* 25 mins*/ * 60 * 1_000); // 10 seconds
+    }, interval + 1_000); // +1 second buffer to ensure interval time has passed and frontend shows 0 seconds properly.
   })
 
   mainWindow.webContents.setWindowOpenHandler((details) => {
