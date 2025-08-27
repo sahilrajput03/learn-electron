@@ -21,6 +21,8 @@ function createWindow(): void {
   // - The code in mainProcess i.e, code in this file doesn't update with vite
   //      vite HMR so you must restart vite dev server to see changes made in this
   //      file.
+  //  TODO: Try if `electronmon` works with `electron-vite` setup to
+  //      auto-restart on changes in this file. --- https://www.npmjs.com/package/electronmon
 
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
