@@ -18,7 +18,8 @@ export default tseslint.config(
     files: ['**/*.{tsx,svelte}'],
     rules: {
       'svelte/no-unused-svelte-ignore': 'off',
-      // TODO: check if you need below rule? ~ Sahil
+      // TODO: Below rules doesn't seem to work (checked on 27 August 2025)
+      // '@typescript-eslint/no-unused-vars': 'off',
       // 'no-unused-vars': 'off'
     }
   },

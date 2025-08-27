@@ -78,7 +78,15 @@ app.whenReady().then(() => {
   })
 
   // IPC test
-  ipcMain.on('ping', () => console.log('pong'))
+  ipcMain.on('ping', () => {
+    console.log('pong')
+  })
+
+  // & From client to main process
+  // Src: https://chatgpt.com/c/68af249b-8870-832d-9929-1aef61f8eedd
+  ipcMain.on('ding', (_event, data) => {
+    console.log('Got data:', data); // { msg: 'hello', count: 5 }
+  });
 
   createWindow()
 
