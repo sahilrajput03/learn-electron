@@ -43,6 +43,7 @@ function createWindow(): void {
     return { action: 'deny' }
   })
 
+  // ? Use f12 key to open/close DevTools manually.
   // ? Open DevTools by default (src: https://chatgpt.com/c/68af249b-8870-832d-9929-1aef61f8eedd)
   mainWindow.webContents.openDevTools({ mode: 'right' }); // `mode` can be "right", "bottom", "undocked", "detach"
 
