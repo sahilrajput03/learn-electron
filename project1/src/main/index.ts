@@ -4,7 +4,7 @@ import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
 
 function createWindow(): void {
-  console.log('❤️ Running main process code - `createWindow()`') // Printed to cli
+  console.log('❤️ `createWindow()` [MAIN_PROCESS]') // Printed to cli
 
   // Create the browser window.
   const mainWindow = new BrowserWindow({
@@ -27,11 +27,11 @@ function createWindow(): void {
   // * LEARN: & This event is triggered when app is first loaded & also when the page is REFRESHED✅ in frontend. (TIME SPENT: 3 HOUR)
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
-    console.log('🚀App is ready to show window.') // Printed to cli
+    console.log('⭐️ EVENT `ready-to-show` [MAIN_PROCESS]') // Printed to cli
 
     // This is necessary because when we refresh the frontend, this event is triggered again and we get multiple intervals accumulated causing bugs.
     if (intervalId) { // Clear old interval if it exists
-      console.log('❌Clearing old interval (MAIN PROCESS)')
+      console.log('\t❌Clearing old interval (MAIN PROCESS)')
       clearInterval(intervalId);
       intervalId = null;
     }
@@ -67,7 +67,7 @@ function createWindow(): void {
 
   // ? Use `option+cmd+i` or `f12`  to open/close DevTools manually.
   // ? Open DevTools by default (src: https://chatgpt.com/c/68af249b-8870-832d-9929-1aef61f8eedd)
-  // mainWindow.webContents.openDevTools({ mode: 'right' }); // `mode` can be "right", "bottom", "undocked", "detach"
+  mainWindow.webContents.openDevTools({ mode: 'right' }); // `mode` can be "right", "bottom", "undocked", "detach"
 
   // HMR for renderer base on electron-vite cli.
   // Load the remote URL for development or the local html file for production.
