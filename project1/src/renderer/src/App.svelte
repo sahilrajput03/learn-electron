@@ -6,8 +6,7 @@
   // import AppDefault from './AppDefault.svelte'
 
   let quote = $state(getRandomQuote())
-  // let timer: number = $state(null)
-  let timer: number = $state(50000)
+  let timer: number = $state(null)
   let intervalId = $state(null)
 
   const clearExistingIntervalIfExists = (id) => {
