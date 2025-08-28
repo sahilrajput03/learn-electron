@@ -22,26 +22,33 @@ function createWindow(): void {
   // & Learn: Use `nr watch` so code changes in this file auto-reloads the app.
   //    Also, `nr dev` command only reloads the renderer process code changes via HMR.
 
+  let intervalId: NodeJS.Timeout | null = null;
+
+  // * LEARN: & This event is triggered when app is first loaded & also when the page is REFRESHED✅ in frontend. (TIME SPENT: 3 HOUR)
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
     console.log('🚀App is ready to show window.') // Printed to cli
 
+    // This is necessary because when we refresh the frontend, this event is triggered again and we get multiple intervals accumulated causing bugs.
+    if (intervalId) { // Clear old interval if it exists
+      console.log('❌Clearing old interval (MAIN PROCESS)')
+      clearInterval(intervalId);
+      intervalId = null;
+    }
+
     mainWindow.setAlwaysOnTop(true);  // Enable always-on-top
 
-    // const interval = 25 /* 25 mins*/ * 60 * 1_000
-    const interval = 10 * 1_000
-
-    // !
-    ///// ! This whole interval code is faulty because if you refresh the frontend, the timer is reset and we still get stale interval.
+    // const intervalMs = 25 /* 25 mins*/ * 60 * 1_000
+    const intervalMs = 10 * 1_000
 
     // ? Bring window to top every 10 seconds, src: https://chatgpt.com/c/68867d7e-1d3c-8007-845b-40c511a43cb9
-    setInterval(async () => {
+    intervalId = setInterval(async () => {
       console.log('🚀Bringing window to top...'); // Printed to cli
       // * Learn: Do *NOT* use alert(..) because we get --- `Uncaught Exception: ReferenceError: alert is not defined`
       // alert('This is alert message.')
 
       // * Send event to frontend to update quote. We expose `custom-event` via file file://./../../src/preload/index.ts) 🎉
-      mainWindow?.webContents.send("custom-event", { action: "UPDATE_QUOTE", interval });
+      mainWindow?.webContents.send("custom-event", { action: "UPDATE_QUOTE", interval: intervalMs });
       // await new Promise(resolve => setTimeout(resolve, 1000)); // wait for 1 second
 
       // * Center the window
@@ -50,7 +57,7 @@ function createWindow(): void {
       // Learn: Works when the window is behind & also when the window was minimised. [Tested ✅]
       mainWindow.setAlwaysOnTop(true);  // Enable always-on-top
       mainWindow.show();                // Bring to front
-    }, interval + 1_000); // +1 second buffer to ensure interval time has passed and frontend shows 0 seconds properly.
+    }, intervalMs + 1_000); // +1 second buffer to ensure interval time has passed and frontend shows 0 seconds properly.
   })
 
   mainWindow.webContents.setWindowOpenHandler((details) => {
@@ -109,6 +116,7 @@ app.whenReady().then(() => {
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
+  console.log('👋 All windows closed. Quitting app...') // Printed to cli
   if (process.platform !== 'darwin') {
     app.quit()
   }

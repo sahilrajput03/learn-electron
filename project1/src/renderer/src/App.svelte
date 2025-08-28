@@ -1,12 +1,13 @@
 <script lang="ts">
-  import { onDestroy } from 'svelte'
+  import { onDestroy, onMount } from 'svelte'
 
   // import { onMount } from 'svelte'
   import { getRandomQuote } from './sampleQuotes'
   // import AppDefault from './AppDefault.svelte'
 
   let quote = $state(getRandomQuote())
-  let timer: number = $state(null)
+  // let timer: number = $state(null)
+  let timer: number = $state(50000)
   let intervalId = $state(null)
 
   const clearExistingIntervalIfExists = (id) => {
@@ -17,8 +18,27 @@
     }
   }
 
-  // onMount(() => { })
-  onDestroy(() => {
+  onMount(() => {
+    console.log(' 🚀🚀 onMount 🚀🚀')
+    // @ts-ignore
+    window.api.onCustomEvent((data) => {
+      if (data.action === 'UPDATE_QUOTE') {
+        quote = getRandomQuote()
+        timer = data.interval
+        clearExistingIntervalIfExists(intervalId)
+        console.log('✅ Starting new interval')
+        let scopedIntervalId = setInterval(() => {
+          timer -= 1_000
+          console.log('🚀 ~ timer:', timer)
+          if (timer <= 0) {
+            clearExistingIntervalIfExists(scopedIntervalId)
+          }
+        }, 1_000)
+        intervalId = scopedIntervalId
+      }
+    })
+  })
+  onDestroy(async () => {
     console.log('❤️ on Destroy called. Clearing interval if exists.')
     clearExistingIntervalIfExists(intervalId)
   })
@@ -26,24 +46,6 @@
   // const sendToMainProcess = (): void => {
   //   window.electron.ipcRenderer.send('ding', { msg: 'hello', count: 5 })
   // }
-
-  // @ts-ignore
-  window.api.onCustomEvent((data) => {
-    if (data.action === 'UPDATE_QUOTE') {
-      quote = getRandomQuote()
-      timer = data.interval
-      clearExistingIntervalIfExists(intervalId)
-      console.log('✅ Starting new interval')
-      let scopedIntervalId = setInterval(() => {
-        timer -= 1_000
-        console.log('🚀 ~ timer:', timer)
-        if (timer <= 0) {
-          clearExistingIntervalIfExists(scopedIntervalId)
-        }
-      }, 1_000)
-      intervalId = scopedIntervalId
-    }
-  })
 
   function formatTime(ms: number): string {
     const totalSeconds = Math.floor(ms / 1000)
