@@ -1,6 +1,9 @@
 @import './base.css';
 
 body {
+  /* Debugging */
+  /* border: 2px solid white; */
+
   display: flex;
   align-items: center;
   justify-content: center;

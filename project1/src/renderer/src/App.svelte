@@ -3,11 +3,14 @@
 
   // import { onMount } from 'svelte'
   import { getRandomQuote } from './sampleQuotes'
+  import { getDateAfterMs, getHourWithMinutes } from './time-utils'
   // import AppDefault from './AppDefault.svelte'
 
   let quote = $state(getRandomQuote())
   let timer: number = $state(null)
   let intervalId = $state(null)
+  let pomodoroEndTimeString: string = $state(null)
+  // let pomodoroEndTimeString: string = $state('11:22 PM') // testing only
 
   const clearExistingIntervalIfExists = (id) => {
     if (id) {
@@ -24,6 +27,7 @@
       if (data.action === 'UPDATE_QUOTE') {
         quote = getRandomQuote()
         timer = data.interval
+        pomodoroEndTimeString = getHourWithMinutes(getDateAfterMs(data.interval))
         clearExistingIntervalIfExists(intervalId)
         console.log('✅ Starting new interval')
         let scopedIntervalId = setInterval(() => {
@@ -71,6 +75,10 @@
   <p style="text-align: center;">{formatTime(timer)}</p>
 </div>
 
+<div class="pomodoro-end-time">
+  {pomodoroEndTimeString}
+</div>
+
 <!-- / // & Send event with data to main process. -->
 <!-- <button onclick={sendToMainProcess}> Send "ping" to Main Process (check console) </button> -->
 
@@ -78,6 +86,16 @@
 <!-- <AppDefault /> -->
 
 <style>
+  .pomodoro-end-time {
+    margin: auto;
+    align-self: flex-end;
+    text-align: center;
+    border: 1px solid white;
+    width: fit-content;
+    padding: 5px 10px;
+    /* Not making it round because I want to make it look squared (stricter) */
+    /* border-radius: 10px; */
+  }
   button {
     color: white;
     background: transparent;
@@ -88,5 +106,6 @@
 
   .container {
     padding: 2em;
+    /* border: 1px solid white; */
   }
 </style>

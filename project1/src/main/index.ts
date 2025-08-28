@@ -21,8 +21,8 @@ function createWindow(): void {
 
   let intervalId: NodeJS.Timeout | null = null;
 
-  // const intervalMs = 25 /* 25 mins*/ * 60 * 1_000
-  const intervalMs = 10 * 1_000
+  const intervalMs = 25 /* 25 mins*/ * 60 * 1_000
+  // const intervalMs = 10 * 1_000
 
   async function bringWindowToTop() {
     console.log('🚀Bringing window to top...'); // Printed to cli
@@ -61,9 +61,9 @@ function createWindow(): void {
     return { action: 'deny' }
   })
 
-  // ? Use `option+cmd+i` or `f12`  to open/close DevTools manually.
+  // ? Use `option+cmd+i` or `f12`  to open/close DevTools manually. (Tags: #debugger)
   // ? Open DevTools by default (src: https://chatgpt.com/c/68af249b-8870-832d-9929-1aef61f8eedd)
-  mainWindow.webContents.openDevTools({ mode: 'right' }); // `mode` can be "right", "bottom", "undocked", "detach"
+  // mainWindow.webContents.openDevTools({ mode: 'right' }); // `mode` can be "right", "bottom", "undocked", "detach"
 
   // HMR for renderer base on electron-vite cli.
   // Load the remote URL for development or the local html file for production.
