@@ -1,3 +1,4 @@
+// src: https://chatgpt.com/c/68b08327-1908-832a-9084-e02cf9e92832
 export function getDateAfterMs(addMs: number) {
   return new Date(Date.now() + addMs);
 }

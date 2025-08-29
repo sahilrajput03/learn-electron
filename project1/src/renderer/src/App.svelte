@@ -79,6 +79,10 @@
   {pomodoroEndTimeString}
 </div>
 
+<!-- Learn: I'm refreshing because on restart button so that in main process
+`ready-to-show` event is fired and we have fresh start for the application. -->
+<button class="restart-btn" onclick={() => location.reload()}>Restart</button>
+
 <!-- / // & Send event with data to main process. -->
 <!-- <button onclick={sendToMainProcess}> Send "ping" to Main Process (check console) </button> -->
 
@@ -95,6 +99,10 @@
     padding: 5px 10px;
     /* Not making it round because I want to make it look squared (stricter) */
     /* border-radius: 10px; */
+  }
+  .restart-btn {
+    position: absolute;
+    bottom: 20px;
   }
   button {
     color: white;
