@@ -1,5 +1,9 @@
 {
   "name": "electron-app1",
+  "build": {
+    "appId": "com.example.myapp",
+    "productName": "Intelligent Assistant"
+  },
   "version": "1.0.0",
   "description": "An Electron application with Svelte and TypeScript",
   "main": "./out/main/index.js",
