@@ -6,9 +6,10 @@ Source: [Click here](https://electron-vite.org/guide/#scaffolding-your-first-ele
 
 Source: [Click here](https://chatgpt.com/c/68b57bdf-72ec-832c-bcdc-dade5506f7b4)
 
-- In macos you must **build** the app to have the name of the application changed in the dock using `nr build:mac`.
+- To change the name of the app you can set it from `build.productName` in `package.json`.
+  - Use of any emoji like 🚀 in `productName` is PROHIBITED, if you use emoji the build process throws error - "Permission denied to create directory for NAME_OF_APP_HERE".
+- ❤️In macos you must **build** the app to have the name of the application changed in the dock using `nr build:mac`.
   - ✅ The build is produced at `dist/{productName}-{version}.dmg`
-- You can not use any emoji like 🚀 in the `build.productName` in `package.json` because it fails in temrinal when building - "Permission denied to create directory for NAME_OF_APP_HERE".
 - ⭐️Uninstall app in macOS: [Click here](https://docs.google.com/document/d/1d4Tq28JC17lFqkoz3lqodACnOlCihFj-MnzNb2Vcqd8/edit?tab=t.0#heading=h.6227jtpwqhic)
 
 ## **Todos:**
