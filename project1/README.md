@@ -2,6 +2,10 @@
 
 Source: [Click here](https://electron-vite.org/guide/#scaffolding-your-first-electron-vite-project)
 
+**Notes:**
+
+- The inconsistent logs fixing is done by removing listeners on ondestroy in app.svelte and removing listeners in preload/index.ts file before attaching the custom-event listener.
+
 ## ❤️ Building
 
 Source: [Click here](https://chatgpt.com/c/68b57bdf-72ec-832c-bcdc-dade5506f7b4)
