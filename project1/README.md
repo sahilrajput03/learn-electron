@@ -8,7 +8,7 @@ Source: [Click here](https://electron-vite.org/guide/#scaffolding-your-first-ele
 
 ## ❤️ Building
 
-Source: [Click here](https://chatgpt.com/c/68b57bdf-72ec-832c-bcdc-dade5506f7b4)
+Source: [ChatGPT](https://chatgpt.com/c/68b57bdf-72ec-832c-bcdc-dade5506f7b4)
 
 - To change the name of the app you can set it from `build.productName` in `package.json`.
   - Use of any emoji like 🚀 in `productName` is PROHIBITED, if you use emoji the build process throws error - "Permission denied to create directory for NAME_OF_APP_HERE".
