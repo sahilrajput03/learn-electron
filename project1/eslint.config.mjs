@@ -14,14 +14,13 @@ export default tseslint.config(
       }
     }
   },
+  eslintConfigPrettier,
   {
-    files: ['**/*.{tsx,svelte}'],
+    files: ['**/*.{ts,tsx,svelte}'],
     rules: {
       'svelte/no-unused-svelte-ignore': 'off',
-      // TODO: Below rules doesn't seem to work (checked on 27 August 2025)
-      // '@typescript-eslint/no-unused-vars': 'off',
-      // 'no-unused-vars': 'off'
+      '@typescript-eslint/no-unused-vars': 'off',
+      // 'no-unused-vars': 'off' // Note: This seems not needed because we are using @typescript-eslint/no-unused-vars
     }
-  },
-  eslintConfigPrettier
+  }
 );

@@ -12,6 +12,12 @@
     "strict": false,
     "allowJs": true,
     "checkJs": true,
-    "lib": ["ESNext", "DOM", "DOM.Iterable"]
+    "lib": [
+      "ESNext",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    // Source: https://stackoverflow.com/questions/55487341/typescript-error-foo-is-declared-but-its-value-is-never-read-ts6133
+    "noUnusedLocals": false
   }
 }

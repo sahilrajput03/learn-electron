@@ -12,7 +12,8 @@ const quotesFromSahil = [
 ].map((quote) => {
   return { author: 'Sahil', quote }
 })
-export const popularQuotes: QuoteType[] = [
+
+const quotesFromEminetPeople = [
   { author: 'Steve Jobs', quote: 'The only way to do great work is to love what you do.' },
   {
     author: 'Warren Buffett',
@@ -44,7 +45,12 @@ export const popularQuotes: QuoteType[] = [
     author: 'Confucius',
     quote: 'It does not matter how slowly you go as long as you do not stop.'
   },
-  { author: "Book - The Hitchhiker's Guide to the Galaxy", quote: "Don't Panic" },
+  { author: "Book - The Hitchhiker's Guide to the Galaxy", quote: "Don't Panic" }
+]
+
+export const popularQuotes: QuoteType[] = [
+  ...quotesFromEminetPeople,
+  // Comment above line (s) if you want to see your own thoughts only.
   ...quotesFromSahil
 ]
 
