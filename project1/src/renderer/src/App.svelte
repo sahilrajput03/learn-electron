@@ -65,9 +65,13 @@
 </script>
 
 <div class="container">
-  <strong>{quote.quote}</strong>
-  <br />
-  <p style="text-align: right;">— {quote.author}</p>
+  <div
+    style="font-size: 22px; font-weight: bolder; background: black; padding: 5px 10px; width: fit-content; border-radius: 5px;"
+  >
+    {quote.quote}
+    <br />
+    <p style="text-align: right;">— {quote.author}</p>
+  </div>
 
   <br />
 
@@ -114,6 +118,7 @@
 
   .container {
     padding: 2em;
+    max-width: 600px;
     /* border: 1px solid white; */
   }
 </style>
