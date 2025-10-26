@@ -4,6 +4,7 @@ Source: [Click here](https://electron-vite.org/guide/#scaffolding-your-first-ele
 
 **Notes:**
 
+- **❤️ Use script `generate-and-install-on-mac.sh` to build, install and then open the app automatically. (26 October 2025)**
 - The inconsistent logs fixing is done by removing listeners on ondestroy in app.svelte and removing listeners in preload/index.ts file before attaching the custom-event listener.
 
 ## ❤️ Building
