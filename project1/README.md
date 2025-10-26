@@ -26,24 +26,21 @@ Source: [Click here](https://chatgpt.com/c/68b57bdf-72ec-832c-bcdc-dade5506f7b4)
 
 ```bash
 npm create @quick-start/electron@latest .
-
-# Need to install the following packages:
-# @quick-start/create-electron@1.0.28
-# Ok to proceed? (y) y
-
-
-# > npx
-# > create-electron .
-
-# ✔ Package name: … electron-app1
-# ✔ Select a framework: › svelte
-# ✔ Add TypeScript? … YES
-# ✔ Add Electron updater plugin? … YES
-# ✔ Enable Electron download mirror proxy? … YES
+# Output:
+#    Need to install the following packages:
+#    @quick-start/create-electron@1.0.28
+#    Ok to proceed? (y) y
+#    > npx
+#    > create-electron .
+#    ✔ Package name: … electron-app1
+#    ✔ Select a framework: › svelte
+#    ✔ Add TypeScript? … YES
+#    ✔ Add Electron updater plugin? … YES
+#    ✔ Enable Electron download mirror proxy? … YES
 
 npm i
 
-# 🚀 For development simply run:
+# 🚀 Start development:
 nr dev
 ```
 
