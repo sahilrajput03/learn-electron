@@ -1,4 +1,12 @@
 #!/bin/bash
+
+# * You can run this script from anywhere via zsh alias
+# *   --- `intelligent-assistant-generate-and-install-on-mac.sh`.
+
+# This is to make this script to work regardless of where it is called from.
+SCRIPT_DIR="$(dirname -- "${BASH_SOURCE[0]}")"
+cd $SCRIPT_DIR
+
 date
 npm run build:mac && {
   # Kill app if already running and remove already installed version

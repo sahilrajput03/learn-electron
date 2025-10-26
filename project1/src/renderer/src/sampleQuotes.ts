@@ -8,7 +8,8 @@ const quotesFromSahil = [
   'Only Micro Steps',
   'Pavitra Sankalp and talking to parmatma (as it lives in your heart) for 15 mins before you sleep.',
   'Charveti - Chalte jana hai.',
-  'Competition and Comparison is destruction. Focus on your own path.'
+  'Competition and Comparison is destruction. Focus on your own path.',
+  'Boom boom boom ❤️ '
 ].map((quote) => {
   return { author: 'Sahil', quote }
 })
