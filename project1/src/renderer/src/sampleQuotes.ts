@@ -9,7 +9,13 @@ const quotesFromSahil = [
   'Pavitra Sankalp and talking to parmatma (as it lives in your heart) for 15 mins before you sleep.',
   'Charveti - Chalte jana hai.',
   'Competition and Comparison is destruction. Focus on your own path.',
-  'Boom boom boom ❤️ '
+  "Use Focusmate to enjoy company while working. It's awesome.",
+  'Use focus music from the “Downloads” folder to enjoy work sometimes.',
+  'Do it in micro steps.',
+  'Kaam karna nhi hai DEKHNA hai, usi se kam hona shuru ho jata hai.',
+  'When not doing work - There is no work.',
+  "I'll just read over what I've got so far. ~ Paul Graham (Article - Great Work).",
+  'Coffee at 12pm is a must.'
 ].map((quote) => {
   return { author: 'Sahil', quote }
 })
