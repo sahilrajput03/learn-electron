@@ -15,7 +15,8 @@ const quotesFromSahil = [
   'Kaam karna nhi hai DEKHNA hai, usi se kam hona shuru ho jata hai.',
   'When not doing work - There is no work.',
   "I'll just read over what I've got so far. ~ Paul Graham (Article - Great Work).",
-  'Coffee at 12pm is a must.'
+  'Coffee at 12pm is a must.',
+  'In VsCode (any vim editor), use :line_number to go to a specific line number quickly.'
 ].map((quote) => {
   return { author: 'Sahil', quote }
 })
