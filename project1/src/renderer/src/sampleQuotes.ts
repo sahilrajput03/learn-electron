@@ -16,7 +16,10 @@ const quotesFromSahil = [
   'When not doing work - There is no work.',
   "I'll just read over what I've got so far. ~ Paul Graham (Article - Great Work).",
   'Coffee at 12pm is a must.',
-  'In VsCode (any vim editor), use :line_number to go to a specific line number quickly.'
+  'In VsCode (any vim editor), use :line_number to go to a specific line number quickly.',
+  'Having something set on the reading stand while eating is प्रेम. ❤️',
+  'Once you have mastered the art of speaking without verbal speaking, you are shubh chintan (Ram-Ram).',
+  'Stop judging quickly or too quickly and rather stop judging at all and just be in action.'
 ].map((quote) => {
   return { author: 'Sahil', quote }
 })
