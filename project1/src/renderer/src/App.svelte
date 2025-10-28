@@ -4,9 +4,13 @@
   // import { onMount } from 'svelte'
   import { getRandomQuote } from './sampleQuotes'
   import { getDateAfterMs, getHourWithMinutes } from './time-utils'
+  import { fade } from 'svelte/transition'
   // import AppDefault from './AppDefault.svelte'
 
-  let quote = $state(getRandomQuote())
+  type QuoteType = { quote: string; author: string }
+
+  let quote: QuoteType = $state()
+  $inspect(quote)
   let timer: number = $state(null)
   let intervalId = $state(null)
   let pomodoroEndTimeString: string = $state(null)
@@ -65,23 +69,30 @@
 </script>
 
 <div class="container">
-  <div
-    style="font-size: 22px; font-weight: bolder; background: black; padding: 5px 10px; width: fit-content; border-radius: 5px;"
-  >
-    {quote.quote}
-    <br />
-    <p style="text-align: right;">— {quote.author}</p>
-  </div>
+  {#if quote}
+    <div
+      transition:fade
+      style="font-size: 22px; font-weight: bolder; background: black; padding: 5px 10px; width: fit-content; border-radius: 5px;"
+    >
+      {quote?.quote}
+      <br />
+      <p style="text-align: right;">— {quote?.author}</p>
+    </div>
+  {/if}
 
   <br />
 
-  <!-- <p style="text-align: center;">{timer / 1_000} seconds</p> -->
-  <p style="text-align: center;">{formatTime(timer)}</p>
+  {#if quote}
+    <!-- <p style="text-align: center;">{timer / 1_000} seconds</p> -->
+    <p style="text-align: center;">{formatTime(timer)}</p>
+  {/if}
 </div>
 
-<div class="pomodoro-end-time">
-  {pomodoroEndTimeString}
-</div>
+{#if pomodoroEndTimeString}
+  <div class="pomodoro-end-time">
+    {pomodoroEndTimeString}
+  </div>
+{/if}
 
 <!-- Learn: I'm refreshing because on restart button so that in main process
 `ready-to-show` event is fired and we have fresh start for the application. -->
