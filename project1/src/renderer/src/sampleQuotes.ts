@@ -21,7 +21,8 @@ const quotesFromSahil = [
   'Once you have mastered the art of speaking without verbal speaking, you are shubh chintan (Ram-Ram).',
   'Stop judging quickly or too quickly and rather stop judging at all and just be in action.',
   'Use cmd+q to exit any mac app.',
-  'Smoke or Sensuality -> Read two pages of BHJH.'
+  'Smoke or Sensuality -> Read two pages of BHJH.',
+  'The root of all evil is not keeping your pocket diary in your pocket at all times.'
 ].map((quote) => {
   return { author: 'Sahil', quote }
 })
