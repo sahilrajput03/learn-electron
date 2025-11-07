@@ -22,7 +22,13 @@ const quotesFromSahil = [
   'Stop judging quickly or too quickly and rather stop judging at all and just be in action.',
   'Use cmd+q to exit any mac app.',
   'Smoke or Sensuality -> Read two pages of BHJH.',
-  'The root of all evil is not keeping your pocket diary in your pocket at all times.'
+  'The root of all evil is not keeping your pocket diary in your pocket at all times.',
+  'The purpose of life is to make everything interesting by techniques.',
+  'Ajwain, Jeera, Saunf, Ginger Tea is so good for digestion.',
+  'Block WhatsApp (any distracting app) via YourHour on your phone.',
+  'Cool Chill Ice Snow.',
+  'Detachment.',
+  'Airplane mode is the best mode.'
 ].map((quote) => {
   return { author: 'Sahil', quote }
 })
