@@ -30,7 +30,7 @@ const quotesFromSahil = [
   'Detachment.',
   'Airplane mode is the best mode.',
   'Sarson oil massage (Garam Tasir).',
-  'Jo tumhara hai wo tumse koi cheen nhi sakta, wo aana hi aana hai. ❤️',
+  'Jo tumhara hai wo tumse koi cheen nhi sakta, woh aana hi aana hai. ❤️',
   'Hume pta nhi hum kya kar sakte hain. ❤️',
   'Hume pta nhi h hum kya cheez hai. ❤️'
 ].map((quote) => {
