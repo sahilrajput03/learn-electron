@@ -9,7 +9,10 @@ body {
   justify-content: center;
   overflow: hidden;
   /* background-image: url('./wavy-lines.svg'); */
-  background-image: url('./background-red-wood-stripes.jpeg');
+  /* background-image: url('./background-red-wood-stripes.jpeg'); */
+  background-image: url('./pink-floyd-the-dark-side-of-the-moon.jpg');
+  /* Below is to give additional padding at top to the background image for `pink-floyd-the-dark-side-of-the-moon.jpg`. */
+  background-position-y: 80px;
   background-size: cover;
   user-select: none;
 }
@@ -150,6 +153,7 @@ code {
   font-size: 14px;
   line-height: 14px;
   opacity: 0.8;
+
   &:last-child {
     border: none;
   }
@@ -168,6 +172,7 @@ code {
 }
 
 @media (max-width: 350px) {
+
   .tip,
   .actions {
     display: none;
